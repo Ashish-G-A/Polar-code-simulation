@@ -1,12 +1,35 @@
+# def f(arr, l):
+# 	out = []
+# 	l = l // 2
+# 	for i in range(0, l):
+# 		a = arr[i]
+# 		b = arr[i + l]
+# 		sign = lambda x : 1 if x >0 else -1 if x < 0 else 0
+# 		out.append(min(abs(a), abs(b)) * sign(a) * sign(b))
+
+# 	return out
+
 def f(arr, l):
 	out = []
 	l = l // 2
+	# sign = lambda x : 1 if x >0 else -1 if x < 0 else 0
 	for i in range(0, l):
 		a = arr[i]
 		b = arr[i + l]
-		sign = lambda x : 1 if x >0 else -1 if x < 0 else 0
-		out.append(min(abs(a), abs(b)) * sign(a) * sign(b))
+		sn_a = 1
+		sn_b = 1
+		if a < 0:
+			a = -a
+			sn_a = -1
+		if b < 0:
+			b = -b
+			sn_b = -1
 
+		mini = b
+		if a < b:
+			mini = a
+
+		out.append(mini * sn_a * sn_b)
 	return out
 
 
